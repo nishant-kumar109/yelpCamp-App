@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="thumbnail">
+        <h1>
+            <%= user.firstName + " " + user.lastName %>
+        </h1>
+        
+        <img id="profile" src="<%= user.avatar %>" alt="user profile image">
+        <div class="caption">
+            <a href="mailto:<%= user.email%>">
+               <%= user.email %> Here is the email id
+            </a>
+        </div>
+        <em>Its a dummy text,which is representing user's
+        Information </em>:Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        </div>
+        </div>
+    
+       <div class="col-md-8">
+           <h3><%= user.username %>'s campgrounds:</h3>
+        <ul>
+        <% campgrounds.forEach(function(campground){ %>
+        <li>
+        <a href="/campgrounds/<%=campground.id%>"><%= campground.name %></a>
+        </li>
+       <% }); %>
+    </ul>
+       </div>
+</div>
+
+<% include ../partials/footer %>
